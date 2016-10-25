@@ -15,8 +15,8 @@ class UserResource(ModelResource):
 
 
 class TaskResource(ModelResource):
-    created_by = fields.ForeignKey(UserResource, 'created_by')
-    assigned_to = fields.ForeignKey(UserResource, 'assigned_to')
+    created_by = fields.ForeignKey(UserResource, 'created_by', full=True)
+    assigned_to = fields.ForeignKey(UserResource, 'assigned_to', full=True)
 
     class Meta:
         queryset = Task.objects.all()
