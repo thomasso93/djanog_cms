@@ -1,0 +1,1 @@
+var cms = angular.module('cms', ['ngRoute']);

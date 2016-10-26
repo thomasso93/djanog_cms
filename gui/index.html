@@ -2,28 +2,16 @@
     <head>
         <title>RM Frontend</title>
         <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-route/angular-route.js">
+        <script src="cms.js"></script>
+        <script src="routing.js"></script>
         <script src="controller/taskController.js"></script>
     </head>
     <body ng-app="cms">
-        <h1>Tasks</h1>
+        <h1>Home</h1>
 
-        <div ng-controller="TaskController">
-            <table>
-                <tr>
-                    <td>Title</td>
-                    <td>Points</td>
-                    <td>Description</td>
-                    <td>Created by</td>
-                    <td>Assigned to</td>
-                </tr>
-                <tr ng-repeat="task in greeting.objects">
-                    <td>{{task.title}}</td>
-                    <td>{{task.points}}</td>
-                    <td>{{task.description}}</td>
-                    <td>{{task.created_by.username}}</td>
-                    <td>{{task.assigned_to.username}}</td>
-                </tr>
-            </table>
+        <div ng-view>
+
 		</div>
 
 
