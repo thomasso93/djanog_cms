@@ -1,0 +1,12 @@
+To start environment:
+1. go to sordon/scripts -> run activate.bat
+
+To start server
+
+1. go to sordon/project/cms
+2. type python manage.py runserver
+
+To start web server
+1. go to sordon/project/cms
+2. type http-server
+3. path to gui is -> http://localhost:8080/gui/#/

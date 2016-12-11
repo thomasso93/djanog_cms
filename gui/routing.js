@@ -1,14 +1,14 @@
-var cms = angular.module('cms', []);
-
-cms.config(function($routeProvider) {
+angular.module('cms', ['ngRoute'])
+.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl : 'index.html',
+            templateUrl : 'home.html',
 //            controller  : 'mainController'
         })
-
         .when('/tasks', {
             templateUrl : 'tasks.html',
             controller  : 'taskController'
         });
+
+//    $locationProvider.html5Mode(true);
 });

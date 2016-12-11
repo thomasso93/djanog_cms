@@ -1,1 +1,1 @@
-var cms = angular.module('cms', ['ngRoute']);
+//angular.module('cms', ['ngRoute']);

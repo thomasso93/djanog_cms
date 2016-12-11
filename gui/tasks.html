@@ -1,21 +1,17 @@
-<html>
-    <head>
-        <title>Tasks</title>
-        <script src="node_modules/angular/angular.js"></script>
-        <script src="cms.js"></script>
-        <script src="controller/taskController.js"></script>
-    </head>
-    <body ng-app="cms">
-        <h1>Tasks</h1>
+<div class="container-fluid">
+     <div class="row-fluid">
+        <div class="col-md-12" ng-controller="taskController">
+            <center>
+                <h1>Current Tasks</h1>
+            </center>
 
-        <div ng-controller="taskController">
-            <table>
+            <table class="table table-bordered table-hover table-responsive">
                 <tr>
-                    <td>Title</td>
-                    <td>Points</td>
-                    <td>Description</td>
-                    <td>Created by</td>
-                    <td>Assigned to</td>
+                    <th>Title</th>
+                    <th>Points</th>
+                    <th>Description</th>
+                    <th>Created by</th>
+                    <th>Assigned to</th>
                 </tr>
                 <tr ng-repeat="task in tasks">
                     <td>{{task.title}}</td>
@@ -25,8 +21,17 @@
                     <td>{{task.assigned_to.username}}</td>
                 </tr>
             </table>
-		</div>
 
+            <div>
+                <h3>New task:</h3>
+                <form>
+                    <label>Title:</label> <input type="text" ng-model="task.title">
+                    <label>Points:</label> <input type="number" ng-model="task.points">
+                    <label>Description:</label> <input type="text" ng-model="task.description">
+                    <button type="submit" ng-click="saveTask(task)">Save</button>
+                </form>
+            </div>
 
-    </body>
-</html>
+        </div>
+    </div>
+</div>

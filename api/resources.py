@@ -14,6 +14,13 @@ class UserResource(ModelResource):
         allowed_methods = ['get']
 
 
+class UserProfileResource(ModelResource):
+    user = fields.ForeignKey(UserResource, 'user', full=True)
+
+    class Meta:
+        allowed_methods = ['get', 'post']
+
+
 class TaskResource(ModelResource):
     created_by = fields.ForeignKey(UserResource, 'created_by', full=True)
     assigned_to = fields.ForeignKey(UserResource, 'assigned_to', full=True)
