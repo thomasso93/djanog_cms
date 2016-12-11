@@ -8,6 +8,10 @@ angular.module('cms', ['ngRoute'])
         .when('/tasks', {
             templateUrl : 'tasks.html',
             controller  : 'taskController'
+        })
+        .when('/articles', {
+            templateUrl : 'articles.html',
+            controller : 'articleController'
         });
 
 //    $locationProvider.html5Mode(true);
