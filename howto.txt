@@ -10,3 +10,6 @@ To start web server
 1. go to sordon/project/cms
 2. type http-server
 3. path to gui is -> http://localhost:8080/gui/#/
+
+Admin panel
+1. go to 127.0.0.1/admin
