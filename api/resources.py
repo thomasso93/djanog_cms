@@ -43,7 +43,8 @@ class UserResource(ModelResource):
                 login(request, user)
                 return self.create_response(request, {
                     'success': True,
-                    'user': user,
+                    'username': user,
+                    'password': password,
                     'id': user.id
                 })
             else:
@@ -55,8 +56,16 @@ class UserResource(ModelResource):
             return self.create_response(request, {'success': False, 'reason': 'incorrect', }, HttpUnauthorized )
 
     def logout(self, request, **kwargs):
-        self.method_check(request, allowed=['get'])
-        if request.user and request.user.is_authenticated():
+        self.method_check(request, allowed=['post'])
+
+        data = self.deserialize(request, request.body, format=request.META.get('CONTENT_TYPE', 'application/json'))
+
+        username = data.get('username', '')
+        password = data.get('password', '')
+
+        user = authenticate(username=username, password=password)
+
+        if user and user.is_authenticated():
             logout(request)
             return self.create_response(request, {'success': True})
         else:

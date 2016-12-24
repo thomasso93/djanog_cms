@@ -20,14 +20,9 @@
         <li id="navArticles"><a href="#/articles">Articles</a></li>
       </ul>
       <form class="navbar-form navbar-right" ng-controller="authenticationController">
-        <div class="form-group form-group-sm" ng-if="!loggedIn">
-          <input type="text" class="form-control" placeholder="Enter Login" ng-model="user.username">
-          <input type="password" class="form-control" placeholder="Enter Password" ng-model="user.password">
-          <button type="submit" class="btn btn-primary btn-sm" ng-click="loginUser(user)">Login</button>
-        </div>
-        <div ng-if="loggedIn">
-          <p>Welcome {{currentUser.user}}!</p>
-          <button type="submit" class="btn btn-primary btn-sm" ng-click="logoutUser(user)">Logout</button>
+        <div ng-if="userData.getLoggedIn()">
+          Welcome {{userData.getUser().username}}!
+          <button type="submit" class="btn btn-primary btn-sm" ng-click="logoutUser()">Logout</button>
         </div>
       </form>
     </div><!-- /.navbar-collapse -->
