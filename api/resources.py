@@ -45,7 +45,8 @@ class UserResource(ModelResource):
                     'success': True,
                     'username': user,
                     'password': password,
-                    'id': user.id
+                    'id': user.id,
+                    'isAdmin': user.is_superuser
                 })
             else:
                 return self.create_response(request, {

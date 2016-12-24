@@ -3,6 +3,7 @@ var cms = angular.module('cms');
 cms.service('userData', function () {
         var user;
         var loggedIn = false;
+        var users;
 
         return {
             getLoggedIn: function () {
@@ -16,6 +17,12 @@ cms.service('userData', function () {
             },
             setUser: function(value) {
                 user = value;
+            },
+            getUsers: function () {
+                return users;
+            },
+            setUsers: function(value) {
+                users = value;
             }
         };
 });

@@ -1,16 +1,24 @@
 <div class="container-fluid">
      <div class="row-fluid">
-        <div class="col-md-12" ng-controller="articleController">
-            <center>
-                <h1>Please login</h1>
-            </center>
-
-            <form>
-                <label>Login:</label> <input type="text">
-                <label>Password:</label> <input type="password">
-            </form>
-
-
+        <div class="col-md-12" ng-controller="authenticationController">
+            <div class="col-md-4 col-md-offset-4">
+                    <center>
+                        <h1>Welcome at Home Manager!</h1>
+                        <h4>Please sign in first to use the app.</h4>
+                    </center>
+                        <br>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Login" ng-model="user.username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Enter Password" ng-model="user.password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-md pull-right" ng-click="loginUser(user)">Login</button>
+                        </div>
+                    </form>
+            </div>
         </div>
     </div>
 </div>
