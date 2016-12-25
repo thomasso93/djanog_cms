@@ -7,6 +7,7 @@ from tastypie.resources import ModelResource
 from tastypie.utils import trailing_slash
 
 from tasks.models import Task
+from news.models import News
 from tastypie.authorization import Authorization
 
 
@@ -18,7 +19,7 @@ class UserResource(ModelResource):
         fields = ['id', 'username']
         allowed_methods = ['get', 'post']
 
-    def override_urls(self):
+    def prepend_urls(self):
         return [
             url(r"^(?P<resource_name>%s)/login%s$" %
                 (self._meta.resource_name, trailing_slash()),
@@ -87,4 +88,14 @@ class TaskResource(ModelResource):
     class Meta:
         queryset = Task.objects.all()
         allowed_methods = ['get', 'post']
+        authorization = Authorization()
+
+
+class NewsResource(ModelResource):
+    news_created_by = fields.ForeignKey(UserResource, 'news_created_by', full=True)
+
+    class Meta:
+        queryset = News.objects.all()
+        resource_name = 'news'
+        allowed_methods = ['get']
         authorization = Authorization()

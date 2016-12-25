@@ -17,11 +17,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from tastypie.api import Api
-from api.resources import TaskResource, UserResource
+from api.resources import TaskResource, UserResource, NewsResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(UserResource())
 v1_api.register(TaskResource())
+v1_api.register(NewsResource())
 
 
 urlpatterns = [

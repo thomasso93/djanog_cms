@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'main',
     'tastypie',
     'corsheaders',
-    'users'
+    'users',
+    'news'
 ]
 
 MIDDLEWARE = [

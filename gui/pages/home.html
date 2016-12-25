@@ -1,5 +1,39 @@
-<body>
-    <center>
-        <h1>HM Beta 0.0.1 Home View</h1>
-    </center>
-</body>
+<div class="container-fluid">
+    <div class="row-fluid" ng-controller="mainController">
+        <div class="col-md-2" ng-if="userData.getUser().isAdmin">
+            <div>
+                is admin!
+            </div>
+        </div>
+
+        <div class="col-md-2" ng-if="!userData.getUser().isAdmin">
+            <div>
+                <h3>Advertisement Panel</h3>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <center>
+                <h1>HM Beta 0.0.1 Home View</h1>
+            </center>
+
+            <div ng-init="loadNews()">
+                <article ng-repeat="singleNews in news">
+                    <header>
+                        <b>{{singleNews.title}}</b>
+                    </header>
+                    <p>
+                        {{singleNews.text}}
+                    </p>
+                </article>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-2">
+            <h1>Sidebar right</h1>
+            Can be used for advertisement
+        </div>
+    </div>
+</div>
